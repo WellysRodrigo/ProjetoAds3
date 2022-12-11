@@ -6,15 +6,18 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	<title>Hello, Spring and JSF World!</title>
+	<title>Cadastros</title>
+
+	<link rel="stylesheet" href="css/pessoa.css"/>
+
 </h:head>
-<h:body>
+<h:body style="background-color:rgb(9, 9, 54) ;">
 	<h:form id="form">
 		<ui:include src="menu.xhtml" />
-		<p:commandButton value="Novo" type="button" icon="pi pi-external-link"
+		<p:commandButton value="Buscar" type="button" icon="pi pi-external-link"
 			onclick="PF('formulario').show()" />
 		<p:dataTable id="lista" var="pessoa" value="#{pessoaControl.pessoas}" 
-			allowUnsorting="true" sortMode="single">
+			allowUnsorting="true" sortMode="single" >
 			<p:column sortBy="#{pessoa.id}" headerText="Id">
 				<h:outputText value="#{pessoa.id}" />
 			</p:column>
@@ -51,7 +54,7 @@
 
 		<p:dialog header="Pessoa" widgetVar="formulario" minHeight="40"
 			showEffect="fade" closeOnEscape="true" >
-			<p:panelGrid id="modeloDiag" columns="6">
+			<p:panelGrid id="modeloDiag" columns="6" >
 				<h:outputText value="Nome:" />
 				<p:inputText value="#{pessoaControl.pessoa.nome}" />
 				<h:outputText value="CPF:" />
